@@ -1,7 +1,7 @@
 // Select color input
 let $colorInput = $('#colorPicker');
 
-// When size is submitted by the user, call makeGrid()
+// When size is submitted by the user, call makeGrid() and prevent default buton behavior
 $('form').submit(function(event){
 	makeGrid();
 	event.preventDefault();
@@ -20,16 +20,11 @@ function makeGrid(){
 	// Remove all table rows
 	$('#pixelCanvas').find('tr').remove();
 
-	// Create new rows
-	let cols = "<td></td>".repeat($w);
-	let rows = "<tr>" + cols + "</tr>";
+	//pre-process the number of columns and wrap them in a row
+	let rows = "<tr>" + "<td></td>".repeat($w) + "</tr>";
+
+	//append rows to table "height" number of times
 	for(var y = 1; y <= $h; y++) {
 		$('#pixelCanvas').append(rows);
 	}
- 
-	// $('tr').each(function(index){
-	// 	for (var x = 0; x < $w; x++) {
-	// 		$(this).append('<td></td>');
-	// 	}
-	// })
 }
