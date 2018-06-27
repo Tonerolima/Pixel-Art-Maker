@@ -1,6 +1,6 @@
 // Select color input
-const $colorInput = $('#colorPicker');
-const $canvas = $('#pixelCanvas');
+const $COLOR_INPUT = $('#colorPicker');
+const $CANVAS = $('#pixelCanvas');
 
 //When size is submitted by the user, call makeGrid()
 $('form').submit(function(event){
@@ -18,7 +18,7 @@ $('form').submit(function(event){
 
 // When a cell is clicked, change the color to the colorPicker value
 $('#pixelCanvas').on('click', 'td', function(event){
-	$(this).css('background-color', $colorInput.val());
+	$(this).css('background-color', $COLOR_INPUT.val());
 })
 
 
@@ -30,12 +30,12 @@ function makeGrid(height, width){
 	** this improves overall performance as we only have to remove one
 	** element when clearing the grid (especially a large grid)
 	*/
-	$canvas.append("<tbody></tbody>");
+	$CANVAS.append('<tbody></tbody>');
 
 	/* pre-process the number of columns and wrap them in a row
 	** this eliminates the use of two loops to create the grid
 	*/
-	let rows = "<tr>" + "<td></td>".repeat(width) + "</tr>";
+	let rows = '<tr>' + '<td></td>'.repeat(width) + '</tr>';
 
 	//append rows to tbody, "height" number of times
 	for(let y = 1; y <= height; y++) {
