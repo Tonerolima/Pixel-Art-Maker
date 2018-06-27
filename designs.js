@@ -1,5 +1,7 @@
 // Select color input
 const $COLOR_INPUT = $('#colorPicker');
+
+// Select canvas(table)
 const $CANVAS = $('#pixelCanvas');
 
 //When size is submitted by the user, call makeGrid()
@@ -17,7 +19,7 @@ $('form').submit(function(event){
 
 
 // When a cell is clicked, change the color to the colorPicker value
-$('#pixelCanvas').on('click', 'td', function(event){
+$CANVAS.on('click', 'td', function(event){
 	$(this).css('background-color', $COLOR_INPUT.val());
 })
 
