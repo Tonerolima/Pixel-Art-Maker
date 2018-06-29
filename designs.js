@@ -4,7 +4,6 @@ const CANVAS = $('#pixelCanvas');
 
 let height = 0;
 let width = 0;
-
 //When size is submitted by the user, call makeGrid()
 $('#sizePicker').submit(function(event){
     //prevent default buton behavior
@@ -58,7 +57,7 @@ $('#pixelCanvas').on('click', 'td', function(event){
         $(this).css('background-color', 'rgb(255, 255, 255)');
     } else {
         $(this).css('background-color', COLOR_INPUT.val());
-    }	
+    }
 })
 
 
