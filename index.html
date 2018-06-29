@@ -7,21 +7,63 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>Lab: Pixel Art Maker</h1>
+    <h1>Pixel Art Maker</h1>
 
-    <h2>Choose Grid Size</h2>
-    <form id="sizePicker">
-        Grid Height:
-        <input type="number" id="inputHeight" name="height" min="1" value="1">
-        Grid Width:
-        <input type="number" id="inputWeight" name="width" min="1" value="1">
-        <input type="submit" value="Submit" title="Submit button" accesskey="j">
-    </form>
+    <div id="firstDiv">
+       <div class="container">
+           <div>
+               <h2>Create new grid</h2>
+               <form id="sizePicker">
+                   <label for="inputHeight">Height:</label>
+                   <input type="number" id="inputHeight" name="height" min="1" value="1">
 
-    <h2>Pick A Color</h2>
-    <input type="color" id="colorPicker">
+                   <label for="inputWeight">Width:</label>
+                   <input type="number" id="inputWeight" name="width" min="1" value="1">
 
-    <h2>Design Canvas</h2>
+                   <input type="submit" value="Create" title="Submit button" accesskey="j">
+               </form>
+           </div>
+           <div>
+               <h2>Resize grid</h2>
+               <form id="adjustGrid">
+                   <label for="axis">Adjust:</label>
+                   <select name="axis" id="axis">
+                       <option value="x">Width</option>
+                       <option value="y">Height</option>
+                       <option value="z">Both</option>
+                   </select>
+
+                   <label for="axis">Mode:</label>
+                   <select name="axis" id="mode">
+                       <option value="add">Increase</option>
+                       <option value="remove">Decrease</option>
+                   </select>
+
+                   <label for="axis">Position:</label>
+                   <select name="pos" id="pos">
+                       <option value="start">Start</option>
+                       <option value="end" selected>End</option>
+                   </select>
+
+                   <label for="size">By:</label>
+                   <input type="number" name="axis" id="size" value="1">
+
+                   <input type="submit" value="Resize" title="Resize button" accesskey="k">
+               </form>
+           </div>
+       </div>
+    </div>
+
+    <div id="canvasHeader">
+        <div>
+            <h2 class="inline">Design Canvas</h2>
+        </div>
+        <div>
+            <h2 class="inline">Drawing Color</h2>
+            <input type="color" id="colorPicker">
+        </div>
+    </div>
+
     <table id="pixelCanvas"></table>
 
     <script src="designs.js"></script>
