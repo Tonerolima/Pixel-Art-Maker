@@ -26,29 +26,41 @@
            <div>
                <h2>Resize grid</h2>
                <form id="adjustGrid">
-                   <label for="axis">Adjust:</label>
-                   <select name="axis" id="axis">
-                       <option value="x">Width</option>
-                       <option value="y">Height</option>
-                       <option value="z">Both</option>
-                   </select>
-
-                   <label for="axis">Mode:</label>
-                   <select name="axis" id="mode">
-                       <option value="add">Increase</option>
-                       <option value="remove">Decrease</option>
-                   </select>
-
-                   <label for="axis">Position:</label>
-                   <select name="pos" id="pos">
-                       <option value="start">Start</option>
-                       <option value="end" selected>End</option>
-                   </select>
-
-                   <label for="size">By:</label>
-                   <input type="number" name="axis" id="size" value="1">
-
-                   <input type="submit" value="Resize" title="Resize button" accesskey="k">
+                <div id="adjustGridDiv">
+                    <div>
+                        <div>
+                            <label for="axis">Adjust:</label>
+                            <select name="axis" id="axis">
+                                <option value="x">Width</option>
+                                <option value="y">Height</option>
+                                <option value="z">Both</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="axis">Mode:</label>
+                            <select name="axis" id="mode">
+                                <option value="add">Increase</option>
+                                <option value="remove">Decrease</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="axis">Position:</label>
+                            <select name="pos" id="pos">
+                                <option value="start">Start</option>
+                                <option value="end" selected>End</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="size">By:</label>
+                            <input type="number" name="axis" id="size" value="1">
+                        </div>
+                        <div>
+                            <input type="submit" value="Resize" title="Resize button" accesskey="k">
+                        </div>
+                    </div>
+                </div>
                </form>
            </div>
        </div>
@@ -59,7 +71,7 @@
             <h2 class="inline">Design Canvas</h2>
         </div>
         <div>
-            <h2 class="inline">Drawing Color</h2>
+            <h3 class="inline">Pick Color: </h3>
             <input type="color" id="colorPicker">
         </div>
     </div>
