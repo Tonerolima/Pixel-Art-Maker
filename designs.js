@@ -1,10 +1,15 @@
-// Select color input
+// Set color input and table constants
 const COLOR_INPUT = $('#colorPicker');
 const CANVAS = $('#pixelCanvas');
 
+/* 
+** initialize Grid height and width variables globally
+** this will be needed to modify grid later
+*/
 let height = 0;
 let width = 0;
-//When size is submitted by the user, call makeGrid()
+
+// When the form submitted by the user, call makeGrid()
 $('#sizePicker').submit(function(event){
     //prevent default buton behavior
     event.preventDefault();
@@ -18,15 +23,18 @@ $('#sizePicker').submit(function(event){
 })
 
 
+// Event listener for the adjustGrid form
 $('#adjustGrid').submit(function(event){
 	//prevent default buton behavior
 	event.preventDefault();
 
+    // get values from form input 
     let size = parseInt($('#size').val());
     let axis = $('#axis').val();
     let mode = $('#mode').val();
     let pos = $('#pos').val();
 
+    // call functions depending on input values
     if(axis === 'x' && mode === 'add'){
         addColumns(size, pos);
     }
@@ -50,7 +58,6 @@ $('#adjustGrid').submit(function(event){
 })
 
 
-
 // When a cell is clicked, change the color to the colorPicker value
 $('#pixelCanvas').on('click', 'td', function(event){
     if($(this).css('background-color') !== 'rgb(255, 255, 255)'){
@@ -61,6 +68,7 @@ $('#pixelCanvas').on('click', 'td', function(event){
 })
 
 
+// Function to create a new Grid
 function makeGrid(h, w){
 	// Remove existing grid, if any
 	$('tbody').remove();
@@ -82,6 +90,8 @@ function makeGrid(h, w){
 	}
 }
 
+
+// function to append new columns to existing Grid
 function addColumns(count, pos){
     width += count;
     if(pos === 'start'){
@@ -90,6 +100,8 @@ function addColumns(count, pos){
     $('tr').append('<td></td>'.repeat(count));
 }
 
+
+// function to remove columns from existing Grid
 function removeColumns(count, pos){
     width -= count;
     if(pos === 'start'){
@@ -103,6 +115,8 @@ function removeColumns(count, pos){
     }
 }
 
+
+// function to append new rows to existing Grid
 function addRows(count, pos){
     height += count;
     if(pos === 'start'){
@@ -116,6 +130,8 @@ function addRows(count, pos){
     }
 }
 
+
+// function to remove rows from existing Grid
 function removeRows(count, pos){
     height -= count;
     if(pos === 'start'){
