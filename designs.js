@@ -82,15 +82,14 @@ function makeGrid(h, w){
 	** element when clearing the grid (especially a large grid)
 	*/
 	CANVAS.append('<tbody></tbody>');
-
-	/* pre-process the number of columns and wrap them in a row
-	** this eliminates the use of two loops to create the grid
-	*/
-	let rows = '<tr>' + '<td></td>'.repeat(w) + '</tr>';
-
 	//append rows to tbody, "height" number of times
 	for(let y = 1; y <= h; y++) {
-		$('tbody').append(rows);
+		$('tbody').append('<tr></tr>');
+        let tempWidth = w;
+        while(tempWidth>0){
+            $('tbody>tr:last-child').append('<td></td>')
+            tempWidth--;
+        }
 	}
 }
 
