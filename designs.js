@@ -60,12 +60,16 @@ $('#adjustGrid').submit(function(event){
 
 // When a cell is clicked, change the color to the colorPicker value
 $('#pixelCanvas').on('click', 'td', function(event){
-    if($(this).css('background-color') !== 'rgb(255, 255, 255)'){
-        $(this).css('background-color', 'rgb(255, 255, 255)');
-    } else {
-        $(this).css('background-color', COLOR_INPUT.val());
-    }
+    $(this).css('background-color', COLOR_INPUT.val());
 })
+
+
+// When a cell is right-clicked, change the color to white
+$('#pixelCanvas').on('contextmenu', 'td', function(event){
+    event.preventDefault();
+    $(this).css('background-color', 'rgb(255, 255, 255)');
+})
+
 
 
 // Function to create a new Grid
